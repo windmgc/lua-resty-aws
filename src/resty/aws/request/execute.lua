@@ -14,6 +14,11 @@ local json_decode = require("cjson.safe").new().decode
 -- * signed_request table
 local function execute_request(signed_request)
 
+
+  local inspect = require("inspect")
+  ngx.log(ngx.ERR, "execute: ")
+  ngx.log(ngx.ERR, inspect(signed_request))
+
   local httpc = http.new()
   httpc:set_timeout(60000)
 

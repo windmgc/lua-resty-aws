@@ -244,6 +244,10 @@ local function build_request(operation, config, params)
   end
   request.headers["Content-Length"] = #request.body
 
+  local inspect = require("inspect")
+  ngx.log(ngx.ERR, "request: ")
+  ngx.log(ngx.ERR, inspect(request))
+
   return request
 end
 
